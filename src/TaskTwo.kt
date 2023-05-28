@@ -39,6 +39,83 @@ fun main(args: Array<String>){
         5 -> println("Вы ответили на все вопросы, вы - молодец!")
     }
 
+    /*
+    Задание № 8
+     */
+
+    println("Введите сумму вклада")
+    var iContribution: String? = readLine()
+    var  sContribution = iContribution.toString().toDouble()
+    println("Введите длительность вклада в месяцах")
+    var iTerm: String? = readLine()
+    var sTerm = iTerm.toString().toInt()
+    println("Введите ежемесячный процент по вкладу")
+    var iPercent: String? = readLine()
+    var sPercent = iPercent.toString().toDouble()
+
+    var i = 0
+    while (i != sTerm){
+        i++
+        var a = sContribution * sPercent * 0.01
+        sContribution = sContribution + a
+        println("За $i месяц вклад увеличится на $a")
+        println("Итоговая сумма вклада $sContribution")
+    }
+
+    /*
+    Задание № 9
+     */
+
+    var geography: Array<Array<String>> = Array(3,{ Array(3,{"o"}) })
+    geography[0] = arrayOf("Россия", "Тайлан", "ОАЭ")
+    geography[1] = arrayOf("Москва", "Бангкок", "Абу-Даби")
+    geography[2] = arrayOf("Рубль", "Бат", "Дирхам")
+
+   for (i in 0..2){
+       for (j in 0..2){
+
+           print(geography[j][i] + " ")
+
+       }
+        println()
+   }
+
+    /*
+    Задание № 10
+     */
+
+    var listCities = ArrayList<String>()
+    while (true) {
+        println("1. Возможность ввести название города\n2. Возможность посмотреть в консоли список всех добавленных городов\n3. Возможность посмотреть список добавленных городов без повторений\n4. Выйти из программы")
+        var example: String? = readLine()
+        var number = example.toString().toInt()
+        if (number == 1) {
+            var exampleCity: String? = readLine()
+            var city = exampleCity.toString()
+            listCities.add(city)
+        }
+
+        if (number == 2){
+            listCities.forEach(::println)
+        }
+
+        if (number == 3){
+            var setCities = listCities.toSet().toList()
+            setCities.forEach(::println)
+        }
+
+        if (number == 4) break
+    }
+
+    /*
+    Задиние № 11
+     */
+
+    var offis : Map<Int, String> = mapOf(1 to "Боб Дилан", 2 to "Пол Маккартни", 3 to "Джон Ленон", 4 to "Джими Хендрикс", 5 to "Витя Пупкин")
+    println("Введите номер места и узнайте кто его занимает\nМест в фоисе 5")
+    var example: String? = readLine()
+    var number = example.toString().toInt()
+    println(offis.get(number))
 
 
 
